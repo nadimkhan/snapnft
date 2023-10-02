@@ -1,0 +1,56 @@
+<?php
+/**
+ * Date Field for Meta Box Framework
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly.
+}
+
+if ( ! class_exists( 'MBF_Field_Date' ) ) {
+
+    class MBF_Field_Date {
+
+        /**
+         * Render the date field.
+         *
+         * @param array $args Field arguments.
+         */
+        public static function render( $args ) {
+            $value = isset( $args['value'] ) ? $args['value'] : '';
+            if ( empty( $value ) && isset( $args['id'] ) ) {
+                $value = get_post_meta( get_the_ID(), $args['id'], true );
+            }
+
+            // Update the value in $args
+            $args['value'] = $value;
+
+            $defaults = array(
+                'id'    => '',
+                'name'  => '',
+                'value' => '',
+                'label' => '',
+                'desc'  => '',
+            );
+
+            $args = wp_parse_args( $args, $defaults );
+
+            echo '<div class="mbf-field postbox">';
+                echo '<div class="mbf-label-desc form-field" >';
+                echo '<label for="' . esc_attr($args['id']) . '">' . esc_html($args['name']) . '</label>';
+                if ( ! empty( $args['desc'] ) ) {
+                    echo '<p class="description">' . esc_html( $args['desc'] ) . '</p>';
+                }
+                echo '</div>';
+            echo '<div class="mbf-input">';
+                echo '<div class="mbf-form-element">';
+                    echo '<input type="date" class="regular-text" id="' . esc_attr( $args['id'] ) . '" name="' . esc_attr( $args['id'] ) . '" value="' . esc_attr( $args['value'] ) . '" />';
+                echo '</div>';
+                echo '</div>';
+            echo '</div>';
+
+        }
+        
+    }
+}
+?>

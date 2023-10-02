@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'muhammadi_quranic';
+  src: url('../fonts/muhammadi_quranic_font-webfont.eot');
+  src: url('../fonts/muhammadi_quranic_font-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/muhammadi_quranic_font-webfont.woff') format('woff'), url('../fonts/muhammadi_quranic_font-webfont.ttf') format('truetype'), url('../fonts/muhammadi_quranic_font-webfont.svg#muhammadi_quranic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'uighur';
+  src: url('../fonts/msuighur-webfont.eot');
+  src: url('../fonts/msuighur-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/msuighur-webfont.woff') format('woff'), url('../fonts/msuighur-webfont.ttf') format('truetype'), url('../fonts/msuighur-webfont.svg#uighur') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
