@@ -242,21 +242,9 @@ jQuery(document).ready(function($) {
 
     $('.tab-link:first').addClass('active');
 
-    $('.layout-fields').hide();
-
-    // Show the field group associated with the checked radio button (if any)
-    var checkedRadioButton = $('.layout-option input[type="radio"]:checked');
-    var targetFields = checkedRadioButton.data('target');
-    $('.' + targetFields).show();
-
-    // Add event listener for radio button changes
-    $('.layout-option input[type="radio"]').on('change', function() {
-        // Hide all field groups
-        $('.layout-fields').hide();
-
-        // Show selected field group
-        var targetFields = $(this).data('target');
-        $('.' + targetFields).show();
+    $('.collapsible-box .box-header').on('click', function() {
+        $(this).siblings('.box-content').slideToggle();
+        $(this).find('.dashicons-arrow-down').toggleClass('rotated');
     });
 
     

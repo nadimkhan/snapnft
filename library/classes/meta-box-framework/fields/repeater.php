@@ -53,7 +53,7 @@ class MBF_Field_Repeater {
                     }
                     echo '<div class="mbf-repeater-item">';
                     echo '<div class="mbf-repeater-header">';
-                        echo '<span class="dashicons dashicons-arrow-down-alt2 mbf-repeater-collapse" onclick="console.log("Click directly from html")"></span>';
+                        echo '<span class="dashicons dashicons-arrow-down-alt2 mbf-repeater-collapse"></span>';
                         echo '<span class="dashicons dashicons-trash mbf-repeater-remove"></span>';
                         echo '<span class="dashicons dashicons-move mbf-repeater-drag"></span>';
                     echo '</div>';

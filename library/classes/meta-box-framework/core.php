@@ -180,7 +180,14 @@ if ( ! class_exists( 'Meta_Box_Framework_Core' ) ) {
                 echo '<div id="' . esc_attr($tab_id) . '" class="tab-content">';
                 foreach ($section['fields'] as $field) {
                     $field['value'] = isset($serialized_data[$field['id']]) ? $serialized_data[$field['id']] : '';
-                    call_user_func(array('MBF_Field_' . ucfirst($field['type']), 'render'), $field);
+                    //call_user_func(array('MBF_Field_' . ucfirst($field['type']), 'render'), $field);
+                    if ($field['type'] === 'layout_radio' || $field['type'] === 'layout_checkbox') {
+                        // Call the render method of MBF_Field_Layout for layout_radio and layout_checkbox field types
+                        call_user_func(array('MBF_Field_Layout', 'render'), $field);
+                    } else {
+                        // Call the render method of the appropriate field class for other field types
+                        call_user_func(array('MBF_Field_' . ucfirst($field['type']), 'render'), $field);
+                    }
                 }
                 echo '</div>';
             }
@@ -235,13 +242,15 @@ if ( ! class_exists( 'Meta_Box_Framework_Core' ) ) {
         
             if (is_array($meta_boxes)) {
                 foreach ( $meta_boxes as $meta_box ) {
+                   // error_log(print_r($_POST, true));
                     if (isset($meta_box['sections']) && is_array($meta_box['sections'])) {
                         foreach ($meta_box['sections'] as $section) {
                             if (isset($section['fields']) && is_array($section['fields'])) {
                                 $serialized_data = array();
                                 foreach ( $section['fields'] as $field ) {
-                                    error_log(print_r($_POST, true)); // Log the entire $_POST data to see what is being sent
-
+                                    //error_log(print_r($_POST, true)); // Log the entire $_POST data to see what is being sent
+                                    //error_log('Processing field: ' . $field['id']); // Log the field ID being processed
+                                    //error_log('Value: ' . print_r($_POST[$field['id']], true));
 
                                     if ($field['type'] == 'checkbox') {
                                         // Handle checkbox data
@@ -406,13 +415,38 @@ if ( ! class_exists( 'Meta_Box_Framework_Core' ) ) {
                                         } else {
                                             delete_post_meta($post_id, $field['id']);
                                         }                        
-                                    } elseif ($field['type'] == 'layout') {
-                                        if ($field['type'] == 'layout' && isset($_POST[$field['id']])) {
-                                            update_post_meta($post_id, $field['id'], sanitize_text_field($_POST[$field['id']]));
+                                    } elseif ($field['type'] == 'layout_radio' || $field['type'] == 'layout_checkbox') {
+                                        error_log('Raw POST Data: ' . print_r($_POST, true));
+
+                                        // Check if the field ID exists in $_POST
+                                        if (isset($_POST[$field['id']])) {
+                                            // Retrieve the layout data from $_POST
+                                            $layout_data = $_POST[$field['id']];
+                                    
+                                            // Initialize an array to store the sanitized data
+                                            $sanitized_layout_data = array();
+                                    
+                                            // Iterate over the layout data and sanitize each value
+                                            foreach ($layout_data as $key => $value) {
+                                                if (is_array($value)) {
+                                                    // If the value is an array, sanitize each element in the array
+                                                    $sanitized_layout_data[$key] = array_map('sanitize_text_field', $value);
+                                                } else {
+                                                    // If the value is not an array, sanitize it directly
+                                                    $sanitized_layout_data[$key] = sanitize_text_field($value);
+                                                }
+                                            }
+                                    
+                                            // Save the sanitized layout data to post meta
+                                            update_post_meta($post_id, $field['id'], $sanitized_layout_data);
                                         } else {
+                                            // If no layout data is provided, delete the existing layout data
                                             delete_post_meta($post_id, $field['id']);
                                         }
                                     }
+                                    
+                                    
+                                    
                                     elseif ($field['type'] == 'content_select') {
                                         if (isset($_POST[$field['id']])) {
                                             $content_id = intval($_POST[$field['id']]);

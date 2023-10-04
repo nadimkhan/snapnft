@@ -158,7 +158,7 @@
     background-color: #fff;;
 }
 
-.layout-option input[type="radio"] {
+.layout-option input[type="radio"], .layout-option input[type="checkbox"] {
     display: none;
 }
 
@@ -167,6 +167,36 @@
     border: 2px solid transparent;
 }
 
-.layout-option input[type="radio"]:checked + img {
+.layout-option input[type="radio"]:checked + img, .layout-option input[type="checkbox"]:checked + img {
     border-color: #007bff; /* Adjust as needed */
+}
+.collapsible-box {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.box-header {
+    padding: 10px;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.box-header .icons {
+    display: flex;
+}
+.box-header img{width: 40px; border:2px solid transparent;}
+
+.box-header .icons .dashicons {
+    margin-left: 10px;
+}
+
+.box-content {
+    padding: 10px;
+}
+
+.dashicons-arrow-down.rotated {
+    transform: rotate(180deg);
 }
