@@ -4,9 +4,10 @@ class MBF_Field_Content_Select {
     public static function render( $field ) {
         // Determine if this field is inside a repeater
         $is_repeater = isset($field['repeater']) && $field['repeater'];
+        $is_group = isset($field['is_group']) && $field['is_group'];
 
         // Adjust the name and value retrieval based on whether it's in a repeater
-        if ($is_repeater) {            
+        if ($is_repeater || $is_group) {            
             $value = isset($field['value']) ? $field['value'] : '';
         } else {            
             $value = get_post_meta(get_the_ID(), $field['id'], true);
@@ -19,7 +20,7 @@ class MBF_Field_Content_Select {
 
         echo '<div class="mbf-field postbox">';
             echo '<div class="mbf-label-desc form-field">';
-                echo '<label>' . esc_html( $field['name'] ) . '</label>';
+                echo '<label>' . esc_html( $field['label'] ) . '</label>';
                 if ( isset( $field['desc'] ) ) {
                     echo '<p class="description">' . esc_html( $field['desc'] ) . '</p>';
                 }

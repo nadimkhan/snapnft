@@ -2,7 +2,15 @@
 class MBF_Field_Repeater {
 
     public static function render( $field ) {
-        $values = get_post_meta(get_the_ID(), $field['id'], true);
+        $is_group = isset($field['is_group']) && $field['is_group'];
+        if(isset($field['value']) && $field['value']){
+            $values = isset($field['value']) ? $field['value'] : '';
+        } else {
+            $values = get_post_meta(get_the_ID(), $field['id'], true);
+        }
+       
+        
+        
         $sub_fields = $field['sub_fields'] ?? array(); // Use the sub_fields from $field
         $layouts = $sub_field['layouts'] ?? array(); // or another default value
 
@@ -26,11 +34,15 @@ class MBF_Field_Repeater {
           //  if (isset($field['sub_fields'])) { // Check if sub_fields key exists
                 foreach ($field['sub_fields'] as $sub_field) {
                     echo '<div class="mbf-sub-field">';
+                    if(!$is_group){
                         echo '<div class="mbf-label-desc form-field">';
                             echo '<label>' . esc_html( $sub_field['label'] ) . '</label>';
                         echo '</div>';
+                    
                         echo '<div class="mbf-input">';
-                        
+                    } else {
+                        echo '<div class="mbf-input is-grouped">';
+                    }    
                         // Use the respective field type class to render the field
                         self::render_field($sub_field, $field['id']);
 
@@ -47,10 +59,11 @@ class MBF_Field_Repeater {
                     $has_data = array_reduce($value_group, function($carry, $item) {
                         return $carry || !empty($item);
                     }, false);
-            
+                    
                     if (!$has_data) {
                         continue; // Skip this block if it doesn't have any data
                     }
+                    
                     echo '<div class="mbf-repeater-item">';
                     echo '<div class="mbf-repeater-header">';
                         echo '<span class="dashicons dashicons-arrow-down-alt2 mbf-repeater-collapse"></span>';
@@ -61,7 +74,12 @@ class MBF_Field_Repeater {
                         $original_sub_field_id = $sub_field['id'];
 
                         $value = isset($value_group[$original_sub_field_id]) ? $value_group[$original_sub_field_id] : '';
-            
+                        if (empty($value)) {
+                            $temp_id = preg_replace('/[\[\]]+/', '_', $field['id']);                          
+                            $constructed_key = $temp_id . '' . $index . '_'. $sub_field['id'];
+                            $value = isset($value_group[$constructed_key]) ? $value_group[$constructed_key] : '';
+                        }
+                        
                         echo '<div class="mbf-sub-field">';
                             echo '<div class="mbf-label-desc form-field">';
                                 echo '<label>' . esc_html( $sub_field['name'] ) . '</label>';
@@ -142,7 +160,9 @@ class MBF_Field_Repeater {
                 $temp_id = str_ireplace('][', '_', $common_args['id']);
                 $second_temp_id = str_ireplace(']','',$temp_id);
                 $editor_id = str_ireplace('[','_', $second_temp_id);
-                $common_args['id'] = $editor_id ;
+                $common_args['id'] = $editor_id ;                
+                $common_args['value'] = $value;
+                
                 MBF_Field_Wysiwyg::render($common_args);
             break;
             case 'date':

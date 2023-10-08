@@ -3,8 +3,8 @@ global $meta_boxes;
 
 $meta_boxes = array(
     array(
-        'id' => 'my_meta_box',
-        'title' => 'My Meta Box',
+        'id' => 'pg_bl_meta_box',
+        'title' => 'BITSLifestyle Meta Box',
         'post_type' => 'page',
         'context' => 'normal',
         'priority' => 'high',
@@ -19,26 +19,19 @@ $meta_boxes = array(
                         'type' => 'layout_radio', // Changed type to layout_radio
                         'layouts' => array(
                             array(
-                                'template' => 'template_1.php',
+                                'template' => 'header_1',
                                 'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/header_1.svg',
                                 'type' => 'group',
                                 'groups' => array(
                                     array(
-                                        'group_name' => 'Group 1 for Template 1',
+                                        'group_name' => 'Layout options for Template 1',
                                         'fields' => array(
-                                            array(
-                                                'id' => 'field_1',
-                                                'name' => 'Field 1 for Template 1',
-                                                'type' => 'text',
-                                                'label' => 'Field 1 for Template 1',
-                                                // ... other field properties ...
-                                            ),
-                                            array(
-                                                'id' => 'field_2',
-                                                'name' => 'Field 1 for Template 1',
-                                                'type' => 'image_upload',
-                                                'label' => 'Field 1 for Template 1',
-                                                // ... other field properties ...
+                                            array('id' => 'l1_title_content','name' => 'Title of Content','type' => 'text','label' => 'Title of Content',),
+                                            array('id' => 'l1_sub_title_content','name' => 'Subtitle of Content','type' => 'text','label' => 'Subtitle/Description',),
+                                            array('id' => 'l1_image_background','name' => 'Fullscreen Image','type' => 'image_upload','label' => 'Fullscreen Image ',),
+                                            array('id' => 'l1_video_content','name' => 'Replace Image with Video Content','type' => 'text','label' => 'Video URL','desc' => 'This is an optional field, if you need to have a video background then fpaste the url of video'),
+                                            array('id' => 'l1_cta_text','name' => 'Text for CTA','type' => 'text','label' => 'CTA Text',),
+                                            array('id' => 'l1_cta_link','name' => 'Link for CTA','type' => 'content_select','label' => 'CTA Link','content_types' => array('page', 'post'),
                                             ),
                                         ),
                                     ),
@@ -46,45 +39,86 @@ $meta_boxes = array(
                                 ),
                             ),
                             array(
-                                'template' => 'template_2.php',
+                                'template' => 'header_2',
                                 'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/header_2.svg',
                                 'type' => 'group',
                                 'groups' => array(
                                     array(
-                                        'group_name' => 'Group 2 for Template 2',
+                                        'group_name' => 'Layout options for Template 2',
                                         'fields' => array(
-                                            array(
-                                                'id' => 'field_3',
-                                                'name' => 'Field 1 for Template 2',
-                                                'type' => 'text',
-                                                'label' => 'Field 1 for Template 2',
-                                                // ... other field properties ...
+                                            array('id' => 'l2_title_content','name' => 'Title of Content','type' => 'text','label' => 'Title of Content',),
+                                            array('id' => 'l2_sub_title_content','name' => 'Subtitle of Content','type' => 'text','label' => 'Subtitle/Description',),
+                                            array('id' => 'l2_image_background','name' => 'Fullscreen Image','type' => 'image_upload','label' => 'Fullscreen Image ',),
+                                            array('id' => 'l2_video_content','name' => 'Replace Image with Video Content','type' => 'text','label' => 'Video URL','desc' => 'This is an optional field, if you need to have a video background then fpaste the url of video'),
+                                            array('id' => 'l2_cta_text','name' => 'Text for CTA','type' => 'text','label' => 'CTA Text',),
+                                            array('id' => 'l2_cta_link','name' => 'Link for CTA','type' => 'content_select','label' => 'CTA Link','content_types' => array('page', 'post'),
                                             ),
-                                            array(
-                                                'id' => 'field_4',
-                                                'name' => 'Field 2 for Template 2',
-                                                'type' => 'wysiwyg',
-                                                'label' => 'Field 2 for Template 2',
-                                                'wysiwyg_id' => 'field_4'
-                                                // ... other field properties ...
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'header_3',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/header_3.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Layout options for Template 3',
+                                        'fields' => array(
+                                            array('id' => 'l3_title_content','name' => 'Title of Content','type' => 'text','label' => 'Title of Content',),
+                                            array('id' => 'l3_sub_title_content','name' => 'Subtitle of Content','type' => 'text','label' => 'Subtitle/Description',),
+                                            array('id' => 'l3_image_background','name' => 'Fullscreen Image','type' => 'image_upload','label' => 'Fullscreen Image ',),
+                                            array('id' => 'l3_video_content','name' => 'Replace Image with Video Content','type' => 'text','label' => 'Video URL','desc' => 'This is an optional field, if you need to have a video background then fpaste the url of video'),
+                                            array('id' => 'l3_cta_text','name' => 'Text for CTA','type' => 'text','label' => 'CTA Text',),
+                                            array('id' => 'l3_cta_link','name' => 'Link for CTA','type' => 'content_select','label' => 'CTA Link','content_types' => array('page', 'post'),
                                             ),
-                                            array(
-                                                'id' => 'field_6',
-                                                'name' => 'Field 2 for Template 2',
-                                                'type' => 'repeater',
-                                                'label' => 'Field 2 for Template 2', 
-                                                'sub_fields' => array(
-                                                    array(
-                                                        'type' => 'wysiwyg',
-                                                        'id' => 're_wysiwyg_field_id',
-                                                        'name' => 'WYSIWYG Field Name',
-                                                        'label' => 'This is wysiwyg in repeater',
-                                                        'desc' => 'Description for the WYSIWYG field.',
-                                                        'repeater' => true,
-                                                        'repeater_id' => 'repeater_field_id',
-                                                    ), 
-                                                )                        
-                                            ),  
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'header_4',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/header_4.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Layout options for Template 4',
+                                        'fields' => array(
+                                            array('id' => 'l4_title_content','name' => 'Title of Content','type' => 'text','label' => 'Title of Content',),                                            
+                                            array('id' => 'l4_image_background','name' => 'Fullscreen Image','type' => 'image_upload','label' => 'Fullscreen Image ',),
+                                            array('id' => 'l4_cta_text','name' => 'Text for CTA','type' => 'text','label' => 'CTA Text',),
+                                            array('id' => 'l4_cta_link','name' => 'Link for CTA','type' => 'content_select','label' => 'CTA Link','content_types' => array('page', 'post'),
+                                            ),
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'header_5',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/header_5.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Layout options for Template 5',
+                                        'fields' => array(
+                                            array('id' => 'l5_content','name' => 'Shortcode Content','type' => 'text','label' => 'Shortcode for Slider/Carousel',)
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'header_6',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/header_6.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Layout options for Template 6',
+                                        'fields' => array(
+                                            array('id' => 'l6_content','name' => 'Shortcode Content','type' => 'text','label' => 'Shortcode for Slider/Carousel',)
                                         ),
                                     ),
                                     // ... more groups for template_1.php ...
@@ -108,26 +142,55 @@ $meta_boxes = array(
                         'type' => 'layout_checkbox', // Changed type to layout_radio
                         'layouts' => array(
                             array(
-                                'template' => 'template_1.php',
+                                'template' => 'content_1',
                                 'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_1.svg',
                                 'type' => 'group',
                                 'groups' => array(
                                     array(
-                                        'group_name' => 'Group 1 for Template 1',
+                                        'group_name' => 'Group for Template 1',
                                         'fields' => array(
                                             array(
-                                                'id' => 'field_1',
-                                                'name' => 'Field 1 for Template 1',
+                                                'id' => 'cn_1_title',
+                                                'name' => 'Title',
                                                 'type' => 'text',
-                                                'label' => 'Field 1 for Template 1',
-                                                // ... other field properties ...
+                                                'label' => 'Title of the section',
+                                                'desc' => 'Add the title content here',
                                             ),
                                             array(
-                                                'id' => 'field_2',
-                                                'name' => 'Field 1 for Template 1',
+                                                'id' => 'cn_1_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_1_main_image',
+                                                'name' => 'Main Image Section',
                                                 'type' => 'image_upload',
-                                                'label' => 'Field 1 for Template 1',
-                                                // ... other field properties ...
+                                                'label' => 'Main Image for section',
+                                                'desc' => 'Add the Main Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_1_overlay_image',
+                                                'name' => 'Overlay Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Overlay Image for section',
+                                                'desc' => 'Add the Overlay Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_1_cta',
+                                                'name' => 'CTA text',
+                                                'type' => 'text',
+                                                'label' => 'CTA Text',
+                                                'desc' => 'Add the CTA Text here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_1_cta_link',
+                                                'name' => 'Link to Page/Post',
+                                                'type' => 'content_select',
+                                                'label' => 'Link to Page/Post',
+                                                'desc' => 'Select the page/post to link to',
+                                                'content_types' => array('page', 'post'),
                                             ),
                                         ),
                                     ),
@@ -135,7 +198,7 @@ $meta_boxes = array(
                                 ),
                             ),
                             array(
-                                'template' => 'template_2.php',
+                                'template' => 'content_2',
                                 'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_2.svg',
                                 'type' => 'group',
                                 'groups' => array(
@@ -143,37 +206,1125 @@ $meta_boxes = array(
                                         'group_name' => 'Group 2 for Template 2',
                                         'fields' => array(
                                             array(
-                                                'id' => 'field_3',
-                                                'name' => 'Field 1 for Template 2',
+                                                'id' => 'cn_2_title',
+                                                'name' => 'Title',
                                                 'type' => 'text',
-                                                'label' => 'Field 1 for Template 2',
-                                                // ... other field properties ...
+                                                'label' => 'Title of the section',
+                                                'desc' => 'Add the title content here',
                                             ),
                                             array(
-                                                'id' => 'field_4',
-                                                'name' => 'Field 2 for Template 2',
+                                                'id' => 'cn_2_content',
+                                                'name' => 'Content for Section',
                                                 'type' => 'wysiwyg',
-                                                'label' => 'Field 2 for Template 2',
-                                                'wysiwyg_id' => 'field_4'
-                                                // ... other field properties ...
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
                                             ),
                                             array(
-                                                'id' => 'field_6',
-                                                'name' => 'Field 2 for Template 2',
+                                                'id' => 'cn_2_main_image',
+                                                'name' => 'Main Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Main Image for section',
+                                                'desc' => 'Add the Main Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_2_overlay_image',
+                                                'name' => 'Overlay Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Overlay Image for section',
+                                                'desc' => 'Add the Overlay Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_2_cta',
+                                                'name' => 'CTA text',
+                                                'type' => 'text',
+                                                'label' => 'CTA Text',
+                                                'desc' => 'Add the CTA Text here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_2_cta_link',
+                                                'name' => 'Link to Page/Post',
+                                                'type' => 'content_select',
+                                                'label' => 'Link to Page/Post',
+                                                'desc' => 'Select the page/post to link to',
+                                                'content_types' => array('page', 'post'),
+                                            ),
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_3',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_3.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group 3 for Template 3',
+                                        'fields' => array( 
+                                            array(
+                                                'id' => 'cn_3_title',
+                                                'name' => 'Title for Section',
+                                                'type' => 'text',
+                                                'label' => 'Title for section',
+                                                'desc' => 'Add the title here',
+                                            ),                                           
+                                            array(
+                                                'id' => 'cn_3_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_3_main_image',
+                                                'name' => 'Main Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Main Image for section',
+                                                'desc' => 'Add the Main Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_3_cta',
+                                                'name' => 'CTA text',
+                                                'type' => 'text',
+                                                'label' => 'CTA Text',
+                                                'desc' => 'Add the CTA Text here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_3_cta_link',
+                                                'name' => 'Link to Page/Post',
+                                                'type' => 'content_select',
+                                                'label' => 'Link to Page/Post',
+                                                'desc' => 'Select the page/post to link to',
+                                                'content_types' => array('page', 'post'),
+                                            ),                                            
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_4',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_4.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 4',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_4_title',
+                                                'name' => 'Title for Section',
+                                                'type' => 'text',
+                                                'label' => 'Title for section',
+                                                'desc' => 'Add the title here',
+                                            ),                                            
+                                            array(
+                                                'id' => 'cn_4_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_4_main_image',
+                                                'name' => 'Main Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Main Image for section',
+                                                'desc' => 'Add the Main Image here',
+                                            ), 
+                                            array(
+                                                'id' => 'cn_4_cta',
+                                                'name' => 'CTA text',
+                                                'type' => 'text',
+                                                'label' => 'CTA Text',
+                                                'desc' => 'Add the CTA Text here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_4_cta_link',
+                                                'name' => 'Link to Page/Post',
+                                                'type' => 'content_select',
+                                                'label' => 'Link to Page/Post',
+                                                'desc' => 'Select the page/post to link to',
+                                                'content_types' => array('page', 'post'),
+                                            ),                                          
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_5',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_5.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 5',
+                                        'fields' => array(  
+                                            array(
+                                                'id' => 'cn_5_title',
+                                                'name' => 'Title ',
+                                                'type' => 'text',
+                                                'label' => 'Title for section',
+                                                'desc' => 'Add the Title here',
+                                            ),                                          
+                                            array(
+                                                'id' => 'cn_5_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),                                            
+                                            
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_6',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_6.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 6',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_6_title',
+                                                'name' => 'Title ',
+                                                'type' => 'text',
+                                                'label' => 'Title for section',
+                                                'desc' => 'Add the Title here',
+                                            ),                                              
+                                            array(
+                                                'id' => 'cn_6_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_6_main_image',
+                                                'name' => 'Main Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Main Image for section',
+                                                'desc' => 'Add the Main Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_6_color',
+                                                'name' => 'Background Color',
+                                                'type' => 'color',
+                                                'label' => 'Background Color',
+                                                'desc' => 'Select Background Color only if it applies else leave as it is',
+                                            ),
+                                            array(
+                                                'id' => 'cn_6_cta',
+                                                'name' => 'CTA text',
+                                                'type' => 'text',
+                                                'label' => 'CTA Text',
+                                                'desc' => 'Add the CTA Text here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_6_cta_link',
+                                                'name' => 'Link to Page/Post',
+                                                'type' => 'content_select',
+                                                'label' => 'Link to Page/Post',
+                                                'desc' => 'Select the page/post to link to',
+                                                'content_types' => array('page', 'post'),
+                                            ),
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_7',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_7.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 7',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_7_title',
+                                                'name' => 'Title ',
+                                                'type' => 'text',
+                                                'label' => 'Title for section',
+                                                'desc' => 'Add the Title here',
+                                            ),                                              
+                                            array(
+                                                'id' => 'cn_7_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_7_main_image',
+                                                'name' => 'Main Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Main Image for section',
+                                                'desc' => 'Add the Main Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_7_color',
+                                                'name' => 'Background Color',
+                                                'type' => 'color',
+                                                'label' => 'Background Color',
+                                                'desc' => 'Select Background Color only if it applies else leave as it is',
+                                            ),
+                                            array(
+                                                'id' => 'cn_7_cta',
+                                                'name' => 'CTA text',
+                                                'type' => 'text',
+                                                'label' => 'CTA Text',
+                                                'desc' => 'Add the CTA Text here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_7_cta_link',
+                                                'name' => 'Link to Page/Post',
+                                                'type' => 'content_select',
+                                                'label' => 'Link to Page/Post',
+                                                'desc' => 'Select the page/post to link to',
+                                                'content_types' => array('page', 'post'),
+                                            ),
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_8',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_8.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 8',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_8_title',
+                                                'name' => 'Title ',
+                                                'type' => 'text',
+                                                'label' => 'Title for section',
+                                                'desc' => 'Add the Title here',
+                                            ),                                              
+                                            array(
+                                                'id' => 'cn_8_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_8_main_image',
+                                                'name' => 'Main Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Main Image for section',
+                                                'desc' => 'Add the Main Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_8_color',
+                                                'name' => 'Background Color',
+                                                'type' => 'color',
+                                                'label' => 'Background Color',
+                                                'desc' => 'Select Background Color only if it applies else leave as it is',
+                                            ),
+                                            array(
+                                                'id' => 'cn_8_cta',
+                                                'name' => 'CTA text',
+                                                'type' => 'text',
+                                                'label' => 'CTA Text',
+                                                'desc' => 'Add the CTA Text here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_8_cta_link',
+                                                'name' => 'Link to Page/Post',
+                                                'type' => 'content_select',
+                                                'label' => 'Link to Page/Post',
+                                                'desc' => 'Select the page/post to link to',
+                                                'content_types' => array('page', 'post'),
+                                            ),
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_9',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_9.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 9',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_9_title',
+                                                'name' => 'Title ',
+                                                'type' => 'text',
+                                                'label' => 'Title for section',
+                                                'desc' => 'Add the Title here',
+                                            ),                                              
+                                            array(
+                                                'id' => 'cn_9_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_9_main_image',
+                                                'name' => 'Main Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Main Image for section',
+                                                'desc' => 'Add the Main Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_9_color',
+                                                'name' => 'Background Color',
+                                                'type' => 'color',
+                                                'label' => 'Background Color',
+                                                'desc' => 'Select Background Color only if it applies else leave as it is',
+                                            ),
+                                            array(
+                                                'id' => 'cn_9_cta',
+                                                'name' => 'CTA text',
+                                                'type' => 'text',
+                                                'label' => 'CTA Text',
+                                                'desc' => 'Add the CTA Text here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_9_cta_link',
+                                                'name' => 'Link to Page/Post',
+                                                'type' => 'content_select',
+                                                'label' => 'Link to Page/Post',
+                                                'desc' => 'Select the page/post to link to',
+                                                'content_types' => array('page', 'post'),
+                                            ),
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_10',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_10.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 10',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_10_title',
+                                                'name' => 'Title ',
+                                                'type' => 'text',
+                                                'label' => 'Title for section',
+                                                'desc' => 'Add the Title here',
+                                            ),                                              
+                                            array(
+                                                'id' => 'cn_10_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_10_main_image',
+                                                'name' => 'Main Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Main Image for section',
+                                                'desc' => 'Add the Main Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_10_cta',
+                                                'name' => 'CTA text',
+                                                'type' => 'text',
+                                                'label' => 'CTA Text',
+                                                'desc' => 'Add the CTA Text here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_10_cta_link',
+                                                'name' => 'Link to Page/Post',
+                                                'type' => 'content_select',
+                                                'label' => 'Link to Page/Post',
+                                                'desc' => 'Select the page/post to link to',
+                                                'content_types' => array('page', 'post'),
+                                            ),                                            
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_11',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_11.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 11',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_11_title',
+                                                'name' => 'Title ',
+                                                'type' => 'text',
+                                                'label' => 'Title for section',
+                                                'desc' => 'Add the Title here',
+                                            ),                                              
+                                            array(
+                                                'id' => 'cn_11_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_11_main_image',
+                                                'name' => 'Main Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Main Image for section',
+                                                'desc' => 'Add the Main Image here',
+                                            ), 
+                                            array(
+                                                'id' => 'cn_11_cta',
+                                                'name' => 'CTA text',
+                                                'type' => 'text',
+                                                'label' => 'CTA Text',
+                                                'desc' => 'Add the CTA Text here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_11_cta_link',
+                                                'name' => 'Link to Page/Post',
+                                                'type' => 'content_select',
+                                                'label' => 'Link to Page/Post',
+                                                'desc' => 'Select the page/post to link to',
+                                                'content_types' => array('page', 'post'),
+                                            ),                                          
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_12',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_12.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 12',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_12_grids',
+                                                'name' => 'No of Boxes ',
+                                                'type' => 'text',
+                                                'label' => 'No. of Boxes',
+                                                'desc' => 'Number of boxes in each row',
+                                            ),                                              
+                                            array(
+                                                'id' => 'cn_12_repeater_field',
+                                                'name' => 'Repeater Field',
                                                 'type' => 'repeater',
-                                                'label' => 'Field 2 for Template 2', 
+                                                'label' => 'Repeater block for multiple field',
                                                 'sub_fields' => array(
                                                     array(
-                                                        'type' => 'wysiwyg',
-                                                        'id' => 're_wysiwyg_field_id',
-                                                        'name' => 'WYSIWYG Field Name',
-                                                        'label' => 'This is wysiwyg in repeater',
-                                                        'desc' => 'Description for the WYSIWYG field.',
+                                                        'id' => 'cn_12_title',
+                                                        'name' => 'Title for Section',
+                                                        'type' => 'text',
+                                                        'label' => 'Title for Section',
+                                                        'desc' => 'Add Title here for the section',
                                                         'repeater' => true,
-                                                        'repeater_id' => 'repeater_field_id',
-                                                    ), 
-                                                )                        
-                                            ),  
+                                                        'repeater_id' => 'cn_12_repeater_field',
+                                                    ),                                                    
+                                                    array(
+                                                        'type' => 'image_upload',
+                                                        'id' => 'cn_12_image',
+                                                        'name' => 'Background Image for the section',
+                                                        'desc' => 'Upload Image for background.',
+                                                        'label' => 'Background Image for the section',
+                                                        'repeater' => true,
+                                                        'repeater_id' => 'cn_12_repeater_field',
+                                                    ),
+                                                    array(
+                                                        'type' => 'wysiwyg',
+                                                        'id' => 'cn_12_content',
+                                                        'name' => 'Content for the section',
+                                                        'desc' => 'Content for the section',
+                                                        'label' => 'Content details for the each box',
+                                                        'repeater' => true,
+                                                        'repeater_id' => 'cn_12_repeater_field',
+                                                    ),
+                                                    array(
+                                                        'id' => 'cn_12_twitter',
+                                                        'name' => 'Link to Twitter',
+                                                        'type' => 'text',
+                                                        'label' => 'Link to Twitter',
+                                                        'desc' => 'Add Twitter profile link',
+                                                        'repeater' => true,
+                                                        'repeater_id' => 'cn_12_repeater_field',
+                                                    ),    
+                                                    array(
+                                                        'id' => 'cn_12_insta',
+                                                        'name' => 'Link to Instagram',
+                                                        'type' => 'text',
+                                                        'label' => 'Link to Instagram',
+                                                        'desc' => 'Add Instagram profile link',
+                                                        'repeater' => true,
+                                                        'repeater_id' => 'cn_12_repeater_field',
+                                                    ),
+                                                    array(
+                                                        'id' => 'cn_12_linkedin',
+                                                        'name' => 'Link to LinkedIn',
+                                                        'type' => 'text',
+                                                        'label' => 'Link to LinkedIn',
+                                                        'desc' => 'Add LinkedIn profile link',
+                                                        'repeater' => true,
+                                                        'repeater_id' => 'cn_12_repeater_field',
+                                                    ),      
+                                                   
+                                                )
+                                            )                                       
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_13',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_13.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 13',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_13_title',
+                                                'name' => 'Title ',
+                                                'type' => 'text',
+                                                'label' => 'Title for section',
+                                                'desc' => 'Add the Title here',
+                                            ),                                              
+                                            array(
+                                                'id' => 'cn_13_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_13_main_image',
+                                                'name' => 'Main Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Main Image for section',
+                                                'desc' => 'Add the Main Image here',
+                                            ), 
+                                            array(
+                                                'id' => 'cn_13_cta',
+                                                'name' => 'CTA text',
+                                                'type' => 'text',
+                                                'label' => 'CTA Text',
+                                                'desc' => 'Add the CTA Text here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_13_cta_link',
+                                                'name' => 'Link to Page/Post',
+                                                'type' => 'content_select',
+                                                'label' => 'Link to Page/Post',
+                                                'desc' => 'Select the page/post to link to',
+                                                'content_types' => array('page', 'post'),
+                                            ),                                          
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_14',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_14.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 14',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_14_repeater_field',
+                                                'name' => 'Repeater Field',
+                                                'type' => 'repeater',
+                                                'label' => 'Repeater block for multiple field',
+                                                'sub_fields' => array(
+                                                    array(
+                                                        'id' => 'cn_14_title',
+                                                        'name' => 'Title for Section',
+                                                        'type' => 'text',
+                                                        'label' => 'Title for Section',
+                                                        'desc' => 'Add Title here for the section',
+                                                        'repeater' => true,
+                                                        'repeater_id' => 'cn_14_repeater_field',
+                                                    ),                                                    
+                                                    array(
+                                                        'type' => 'image_upload',
+                                                        'id' => 'cn_14_image',
+                                                        'name' => 'Background Image for the section',
+                                                        'desc' => 'Upload Image for background.',
+                                                        'label' => 'Background Image for the section',
+                                                        'repeater' => true,
+                                                        'repeater_id' => 'cn_14_repeater_field',
+                                                    ),                                                    
+                                                )
+                                            )  
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_15',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_15.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 15',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_15_title',
+                                                'name' => 'Title ',
+                                                'type' => 'text',
+                                                'label' => 'Title for section',
+                                                'desc' => 'Add the Title here',
+                                            ),                                              
+                                            array(
+                                                'id' => 'cn_15_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_15_main_image',
+                                                'name' => 'Main Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Main Image for section',
+                                                'desc' => 'Add the Main Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_15_color',
+                                                'name' => 'Background Color',
+                                                'type' => 'color',
+                                                'label' => 'Background Color',
+                                                'desc' => 'Select Background Color only if it applies else leave as it is',
+                                            ),
+                                            array(
+                                                'id' => 'cn_15_cta',
+                                                'name' => 'CTA text',
+                                                'type' => 'text',
+                                                'label' => 'CTA Text',
+                                                'desc' => 'Add the CTA Text here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_15_cta_link',
+                                                'name' => 'Link to Page/Post',
+                                                'type' => 'content_select',
+                                                'label' => 'Link to Page/Post',
+                                                'desc' => 'Select the page/post to link to',
+                                                'content_types' => array('page', 'post'),
+                                            ),
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_16',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_16.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 16',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_16_title',
+                                                'name' => 'Title ',
+                                                'type' => 'text',
+                                                'label' => 'Title for section',
+                                                'desc' => 'Add the Title here',
+                                            ),                                              
+                                            array(
+                                                'id' => 'cn_16_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_16_main_image',
+                                                'name' => 'Main Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Main Image for section',
+                                                'desc' => 'Add the Main Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_16_color',
+                                                'name' => 'Background Color',
+                                                'type' => 'color',
+                                                'label' => 'Background Color',
+                                                'desc' => 'Select Background Color only if it applies else leave as it is',
+                                            ),
+                                            array(
+                                                'id' => 'cn_16_cta',
+                                                'name' => 'CTA text',
+                                                'type' => 'text',
+                                                'label' => 'CTA Text',
+                                                'desc' => 'Add the CTA Text here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_16_cta_link',
+                                                'name' => 'Link to Page/Post',
+                                                'type' => 'content_select',
+                                                'label' => 'Link to Page/Post',
+                                                'desc' => 'Select the page/post to link to',
+                                                'content_types' => array('page', 'post'),
+                                            ),
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_17',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_17.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 16',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_17_title',
+                                                'name' => 'Title ',
+                                                'type' => 'text',
+                                                'label' => 'Title for section',
+                                                'desc' => 'Add the Title here',
+                                            ),                                              
+                                            array(
+                                                'id' => 'cn_17_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_17_main_image',
+                                                'name' => 'Main Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Main Image for section',
+                                                'desc' => 'Add the Main Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_17_color',
+                                                'name' => 'Background Color',
+                                                'type' => 'color',
+                                                'label' => 'Background Color',
+                                                'desc' => 'Select Background Color only if it applies else leave as it is',
+                                            ),
+                                            array(
+                                                'id' => 'cn_17_cta',
+                                                'name' => 'CTA text',
+                                                'type' => 'text',
+                                                'label' => 'CTA Text',
+                                                'desc' => 'Add the CTA Text here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_17_cta_link',
+                                                'name' => 'Link to Page/Post',
+                                                'type' => 'content_select',
+                                                'label' => 'Link to Page/Post',
+                                                'desc' => 'Select the page/post to link to',
+                                                'content_types' => array('page', 'post'),
+                                            ),
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_18',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_18.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 18',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_18_title',
+                                                'name' => 'Title ',
+                                                'type' => 'text',
+                                                'label' => 'Title for section',
+                                                'desc' => 'Add the Title here',
+                                            ),                                              
+                                            array(
+                                                'id' => 'cn_18_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_18_main_image',
+                                                'name' => 'Main Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Main Image for section',
+                                                'desc' => 'Add the Main Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_18_color',
+                                                'name' => 'Background Color',
+                                                'type' => 'color',
+                                                'label' => 'Background Color',
+                                                'desc' => 'Select Background Color only if it applies else leave as it is',
+                                            ),
+                                            array(
+                                                'id' => 'cn_18_cta',
+                                                'name' => 'CTA text',
+                                                'type' => 'text',
+                                                'label' => 'CTA Text',
+                                                'desc' => 'Add the CTA Text here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_18_cta_link',
+                                                'name' => 'Link to Page/Post',
+                                                'type' => 'content_select',
+                                                'label' => 'Link to Page/Post',
+                                                'desc' => 'Select the page/post to link to',
+                                                'content_types' => array('page', 'post'),
+                                            ),
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_19',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_19.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 19',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_19_grids',
+                                                'name' => 'No of Boxes ',
+                                                'type' => 'text',
+                                                'label' => 'No. of Boxes',
+                                                'desc' => 'Number of boxes in each row',
+                                            ),
+                                            array(
+                                                'type' => 'select',
+                                                'id' => 'cn_19_arrangement',
+                                                'name' => 'Select Arrangement Type',
+                                                'label' => 'Select Arrangement Type',
+                                                'desc' => 'Select the arrangement of the box content. I = Icon, T = Title, D = Description',
+                                                'options' => array(
+                                                    'option1' => 'I-T/D',
+                                                    'option2' => 'T/I/D',
+                                                    'option3' => 'I/T/D',
+                                                ),
+                                                'default' => 'Select Arrangement Type' // Optional default value
+                                            ),                                             
+                                            array(
+                                                'id' => 'cn_19_repeater_field',
+                                                'name' => 'Repeater Field',
+                                                'type' => 'repeater',
+                                                'label' => 'Repeater block for multiple field',
+                                                'sub_fields' => array(
+                                                    array(
+                                                        'id' => 'cn_19_title',
+                                                        'name' => 'Title for Box',
+                                                        'type' => 'text',
+                                                        'label' => 'Title for Box',
+                                                        'desc' => 'Add Title here for the Box',
+                                                        'repeater' => true,
+                                                        'repeater_id' => 'cn_19_repeater_field',
+                                                    ),                                                    
+                                                    array(
+                                                        'type' => 'image_upload',
+                                                        'id' => 'cn_19_image',
+                                                        'name' => 'Icon Image for the section',
+                                                        'desc' => 'Icn Image',
+                                                        'label' => 'Icon Image for the section',
+                                                        'repeater' => true,
+                                                        'repeater_id' => 'cn_19_repeater_field',
+                                                    ),
+                                                    array(
+                                                        'type' => 'text',
+                                                        'id' => 'cn_19_content',
+                                                        'name' => 'Content for the section',
+                                                        'desc' => 'Content for the section',
+                                                        'label' => 'Content details for the each box',
+                                                        'repeater' => true,
+                                                        'repeater_id' => 'cn_19_repeater_field',
+                                                    ),                                                      
+                                                   
+                                                )
+                                            )                                       
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_20',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_20.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 20',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_20_title',
+                                                'name' => 'Title',
+                                                'type' => 'text',
+                                                'label' => 'Title of the section',
+                                                'desc' => 'Add the title content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_20_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_20_main_image',
+                                                'name' => 'Main Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Main Image for section',
+                                                'desc' => 'Add the Main Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_20_overlay_image',
+                                                'name' => 'Overlay Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Overlay Image for section',
+                                                'desc' => 'Add the Overlay Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_20_cta',
+                                                'name' => 'CTA text',
+                                                'type' => 'text',
+                                                'label' => 'CTA Text',
+                                                'desc' => 'Add the CTA Text here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_20_cta_link',
+                                                'name' => 'Link to Page/Post',
+                                                'type' => 'content_select',
+                                                'label' => 'Link to Page/Post',
+                                                'desc' => 'Select the page/post to link to',
+                                                'content_types' => array('page', 'post'),
+                                            ),
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_21',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_21.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 21',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_21_title',
+                                                'name' => 'Title',
+                                                'type' => 'text',
+                                                'label' => 'Title of the section',
+                                                'desc' => 'Add the title content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_21_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_21_main_image',
+                                                'name' => 'Main Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Main Image for section',
+                                                'desc' => 'Add the Main Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_21_overlay_image',
+                                                'name' => 'Overlay Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Overlay Image for section',
+                                                'desc' => 'Add the Overlay Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_21_cta',
+                                                'name' => 'CTA text',
+                                                'type' => 'text',
+                                                'label' => 'CTA Text',
+                                                'desc' => 'Add the CTA Text here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_21_cta_link',
+                                                'name' => 'Link to Page/Post',
+                                                'type' => 'content_select',
+                                                'label' => 'Link to Page/Post',
+                                                'desc' => 'Select the page/post to link to',
+                                                'content_types' => array('page', 'post'),
+                                            ),
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_22',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_22.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 22',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_22_title',
+                                                'name' => 'Title',
+                                                'type' => 'text',
+                                                'label' => 'Title of the section',
+                                                'desc' => 'Add the title content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_22_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_22_repeater_field',
+                                                'name' => 'Repeater Field',
+                                                'type' => 'repeater',
+                                                'label' => 'Repeater block for multiple field',
+                                                'sub_fields' => array(
+                                                    array(
+                                                        'id' => 'cn_22_title',
+                                                        'name' => 'Title for Box',
+                                                        'type' => 'text',
+                                                        'label' => 'Title for Box',
+                                                        'desc' => 'Add Title here for the Box',
+                                                        'repeater' => true,
+                                                        'repeater_id' => 'cn_22_repeater_field',
+                                                    ),
+                                                    array(
+                                                        'type' => 'text',
+                                                        'id' => 'cn_22_content',
+                                                        'name' => 'Content for the section',
+                                                        'desc' => 'Content for the section',
+                                                        'label' => 'Content details for the each box',
+                                                        'repeater' => true,
+                                                        'repeater_id' => 'cn_22_repeater_field',
+                                                    ),                                                      
+                                                   
+                                                )
+                                            )  
                                         ),
                                     ),
                                     // ... more groups for template_1.php ...

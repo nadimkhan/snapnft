@@ -5,12 +5,12 @@ class MBF_Field_Wysiwyg {
 
     public static function render( $field ) {
     // Determine if this field is inside a repeater
-    error_log(print_r($field, true));
+    //error_log(print_r($field, true));
     $is_repeater = isset($field['repeater']) && $field['repeater'];
     // Adjust the name, id, and value retrieval based on whether it's in a repeater
     $is_group = isset($field['is_group']) && $field['is_group'];
     
-    if ($is_repeater) {           
+    if ($is_repeater || $is_group) {           
         $value = isset($field['value']) ? $field['value'] : '';
     } else {        
         $value = get_post_meta(get_the_ID(), $field['id'], true);

@@ -3,9 +3,10 @@ class MBF_Field_Image_Upload {
 
     public static function render( $field ) {
         $is_repeater = isset($field['repeater']) && $field['repeater'];
+        $is_group = isset($field['is_group']) && $field['is_group'];
 
         // Adjust the name and value retrieval based on whether it's in a repeater
-        if ($is_repeater) {            
+        if ($is_repeater || $is_group) {            
             $value = isset($field['value']) ? $field['value'] : '';
         } else {            
             $value = get_post_meta(get_the_ID(), $field['id'], true);

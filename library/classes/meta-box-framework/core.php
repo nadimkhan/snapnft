@@ -217,7 +217,23 @@ if ( ! class_exists( 'Meta_Box_Framework_Core' ) ) {
         }*/
         
         
+        public static function sanitize_and_remove_index($array) {
+            $sanitized_array = array();
         
+            foreach ($array as $key => $value) {
+                if ($key !== '__index__') {
+                    if (is_array($value)) {
+                        // Recursive call for nested arrays
+                        $sanitized_array[$key] = self::sanitize_and_remove_index($value);
+                    } else {
+                        // Sanitize the value if necessary
+                        $sanitized_array[$key] = sanitize_text_field($value);
+                    }
+                }
+            }
+        
+            return $sanitized_array;
+        }
         
         
         
@@ -416,34 +432,24 @@ if ( ! class_exists( 'Meta_Box_Framework_Core' ) ) {
                                             delete_post_meta($post_id, $field['id']);
                                         }                        
                                     } elseif ($field['type'] == 'layout_radio' || $field['type'] == 'layout_checkbox') {
-                                        error_log('Raw POST Data: ' . print_r($_POST, true));
-
+                                        //error_log('RAW Data: ' . print_r($_POST, true));
+                                    
                                         // Check if the field ID exists in $_POST
                                         if (isset($_POST[$field['id']])) {
                                             // Retrieve the layout data from $_POST
                                             $layout_data = $_POST[$field['id']];
                                     
-                                            // Initialize an array to store the sanitized data
-                                            $sanitized_layout_data = array();
+                                            // Sanitize and remove __index__ arrays
+                                            $sanitized_layout_data = self::sanitize_and_remove_index($layout_data);
                                     
-                                            // Iterate over the layout data and sanitize each value
-                                            foreach ($layout_data as $key => $value) {
-                                                if (is_array($value)) {
-                                                    // If the value is an array, sanitize each element in the array
-                                                    $sanitized_layout_data[$key] = array_map('sanitize_text_field', $value);
-                                                } else {
-                                                    // If the value is not an array, sanitize it directly
-                                                    $sanitized_layout_data[$key] = sanitize_text_field($value);
-                                                }
-                                            }
-                                    
-                                            // Save the sanitized layout data to post meta
+                                            // Save the sanitized and restructured layout data to post meta
                                             update_post_meta($post_id, $field['id'], $sanitized_layout_data);
                                         } else {
                                             // If no layout data is provided, delete the existing layout data
                                             delete_post_meta($post_id, $field['id']);
                                         }
                                     }
+                                    
                                     
                                     
                                     

@@ -30,7 +30,8 @@ if ( ! class_exists( 'MBF_Field_Color' ) ) {
             echo '<div class="mbf-input">';
                 echo '<div class="mbf-form-element">';
                    // echo '<input type="text" class="mbf-color-picker-display" id="' . esc_attr( $args['id'] ) . '_display" value="' . esc_attr( $args['value'] ) . '" />';
-                    echo '<input type="color" class="mbf-color-picker" id="' . esc_attr( $args['id'] ) . '" name="' . esc_attr( $args['id'] ) . '" value="' . esc_attr( $args['value'] ) . '" style="display:block;" />';
+                   $value = (isset($args['value']) && !empty($args['value'])) ? esc_attr($args['value']) : '#ffffff';
+                    echo '<input type="color" class="mbf-color-picker" id="' . esc_attr( $args['id'] ) . '" name="' . esc_attr( $args['id'] ) . '" value="' . $value . '" style="display:block;" />';
                 echo '</div>';
                 echo '</div>';
             echo '</div>';

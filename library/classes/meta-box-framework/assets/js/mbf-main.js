@@ -98,8 +98,8 @@ jQuery(document).ready(function($) {
 
     // Make repeater blocks sortable
     $('.mbf-input').sortable({
-        items: '.mbf-repeater-item',
-        handle: '.mbf-repeater-drag',
+        items: '.mbf-repeater-item, .collapsible-box',
+        handle: '.mbf-repeater-drag, .dashicons-move',
         placeholder: 'mbf-repeater-sortable-placeholder',
         forcePlaceholderSize: true,
         forceHelperSize: true,
@@ -118,6 +118,9 @@ jQuery(document).ready(function($) {
             ui.item.find('input[type="radio"]:checked').each(function() {
                 $(this).data('wasChecked', true);
             });
+        },
+        update: function(event, ui) {
+            updateOrderNumbers();
         },
         stop: function(event, ui) {
             // Reinitialize the WYSIWYG editors and restore their content
@@ -138,6 +141,15 @@ jQuery(document).ready(function($) {
             });
         }
     });
+    
+    $('.layout-option').hover(
+        function() { // Mouse enter
+            $(this).find('.image-preview').show();
+        },
+        function() { // Mouse leave
+            $(this).find('.image-preview').hide();
+        }
+    );
 
     // Image Upload
     
@@ -249,6 +261,14 @@ jQuery(document).ready(function($) {
 
     
 });
+function updateOrderNumbers() {
+    jQuery('.collapsible-box[data-input-type="checkbox"]').each(function(index, element) {
+        var newOrder = index + 1; // Order numbers start from 1
+        jQuery(element).data('order', newOrder); // Update data attribute
+        jQuery(element).find('.order-display').text(newOrder); // Update displayed order number
+        jQuery(element).find('.order-input').val(newOrder); // Update hidden input value
+    });
+}
 
 function destroyWysiwygEditor(editorId) {
     if (editorId && tinyMCE && tinyMCE.get(editorId)) {
