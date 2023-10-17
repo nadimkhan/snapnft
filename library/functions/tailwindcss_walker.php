@@ -1,98 +1,32 @@
 <?php 
-   //class Tailwind_Walker_Nav_Menu extends Walker_Nav_Menu {
-    class Tailwind_Walker_Nav_Menu extends Walker_Nav_Menu {
-        public function start_lvl(&$output, $depth = 0, $args = null) {
-            if(isset($args->item_spacing) && 'discard' === $args->item_spacing) {
-                $t = '';
-                $n = '';
-            } else {
-                $t = "\t";
-                $n = "\n";
-            }
-            $indent = str_repeat($t, $depth);
-            $classes = ['absolute', 'right-0', 'z-10', 'mt-2', 'w-56', 'origin-top-right', 'rounded-md', 'bg-white', 'shadow-lg', 'ring-1', 'ring-black', 'ring-opacity-5', 'focus:outline-none'];
+   class Tailwind_Walker_Nav_Menu extends Walker_Nav_Menu {
+    public function start_lvl(&$output, $depth = 0, $args = null) {
+        // Add a custom class for targeting with CSS
+        $output .= '<ul class="submenu relative px-2 py-2 ease-in-out transition-all duration-700 transform opacity-0 custom-hidden text-[18px]">';
+    }
     
-            $class_names = join(' ', apply_filters('nav_menu_submenu_css_class', $classes, $args, $depth));
-            $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
+
+    public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+        $indent = ($depth) ? str_repeat("\t", $depth) : '';
     
-            $output .= "{$n}{$indent}<div$class_names role=\"menu\" aria-orientation=\"vertical\" aria-labelledby=\"menu-button\" tabindex=\"-1\"><div class=\"py-1\" role=\"none\">{$n}";
+        $classes = empty($item->classes) ? array() : (array) $item->classes;
+        $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args, $depth));
+        $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
+    
+        $output .= $indent . '<li' . $class_names . '>';
+    
+        $icon = '';
+        if (in_array('menu-item-has-children', $item->classes)) {
+            // Add Font Awesome chevron down icon for items with submenus
+            $icon = '<i class="fas fa-chevron-down ml-2"></i>';
         }
     
-        public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
-            if(isset($args->item_spacing) && 'discard' === $args->item_spacing) {
-                $t = '';
-                $n = '';
-            } else {
-                $t = "\t";
-                $n = "\n";
-            }
-            $indent = ($depth) ? str_repeat($t, $depth) : '';
-    
-            $classes = empty($item->classes) ? array() : (array) $item->classes;
-            $classes[] = 'menu-item-' . $item->ID;
-    
-            $args = apply_filters('nav_menu_item_args', $args, $item, $depth);
-    
-            $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args, $depth));
-            $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
-    
-            $id = apply_filters('nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args, $depth);
-            $id = $id ? ' id="' . esc_attr($id) . '"' : '';
-    
-            $output .= $indent . '<div' . $id . $class_names .'>';
-    
-            $atts = array();
-            $atts['title']  = ! empty($item->attr_title) ? $item->attr_title : '';
-            $atts['target'] = ! empty($item->target)     ? $item->target     : '';
-            $atts['rel']    = ! empty($item->xfn)        ? $item->xfn        : '';
-            $atts['href']   = ! empty($item->url)        ? $item->url        : '';
-    
-            $atts = apply_filters('nav_menu_link_attributes', $atts, $item, $args, $depth);
-    
-            $attributes = '';
-            foreach ( $atts as $attr => $value ) {
-                if ( is_scalar( $value ) && '' !== $value && false !== $value ) {
-                    $value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
-                    $attributes .= ' ' . $attr . '="' . $value . '"';
-                }
-            }
-    
-            $title = apply_filters( 'the_title', $item->title, $item->ID );
-    
-            $title = apply_filters( 'nav_menu_item_title', $title, $item, $args, $depth );
-    
-            $item_output = $args->before;
-            $item_output .= '<a' . $attributes . ' class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">';
-            $item_output .= $args->link_before . $title . $args->link_after;
-            $item_output .= '</a>';
-            $item_output .= $args->after;
-    
-            $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-        }
-    
-        public function end_el( &$output, $item, $depth = 0, $args = null ) {
-            if(isset($args->item_spacing) && 'discard' === $args->item_spacing) {
-                $t = '';
-                $n = '';
-            } else {
-                $t = "\t";
-                $n = "\n";
-            }
-            $output .= "</div>{$n}";
-        }
-    
-        public function end_lvl( &$output, $depth = 0, $args = null ) {
-            if(isset($args->item_spacing) && 'discard' === $args->item_spacing) {
-                $t = '';
-                $n = '';
-            } else {
-                $t = "\t";
-                $n = "\n";
-            }
-            $indent = str_repeat($t, $depth);
-            $output .= "$indent</div></div>{$n}";
-        }
+        // Add Tailwind classes to style the menu item
+        $output .= '<a href="' . esc_attr($item->url) . '" class="text-white block  py-1 relative">' . $item->title . $icon . '</a>';
     }
     
     
+}
+
+
 ?>

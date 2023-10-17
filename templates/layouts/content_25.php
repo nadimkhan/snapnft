@@ -4,19 +4,19 @@
                                 <div class="lg:basis-2/5 lg:pl-8 basis-full">
                                     <h2 class="font-larken text-[32px] md:text-[42px] font-light mb-4 leading-[36px] md:leading-[46px]">
                                         <?php
-                                        if(isset($data['cn_5_title']) && $data['cn_5_title'] != ''){ 
-                                            echo $data['cn_5_title'];
+                                       
+                                        if(isset($data['cn_25_title']) && $data['cn_25_title'] != ''){ 
+                                            echo $data['cn_25_title'];
                                         }
-                                        
                                         ?>
                                     </h2>                                    
                                 </div>
                                 <div class=" lg:basis-3/5 lg:pr-16">
                                     <?php 
-                                        if(isset($data['cn_5_content']) && $data['cn_5_content'] != ''){ 
-                                            echo $data['cn_5_content'];
+                                      
+                                        if(isset($data['cn_25_content']) && $data['cn_25_content'] != ''){ 
+                                            echo $data['cn_25_content'];
                                         }
-                                       
                                     ?>
                                    
                                     <?php // if($data['_call_to_action'] != ''){ ?>

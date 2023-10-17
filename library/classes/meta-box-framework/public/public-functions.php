@@ -52,6 +52,7 @@ class Layout_Handler {
         $template_file = get_template_directory() . "/templates/layouts/{$template}.php";
     
         if (file_exists($template_file)) {
+            extract($data, EXTR_SKIP);
             include $template_file;
             //echo $template_file;
         } else {

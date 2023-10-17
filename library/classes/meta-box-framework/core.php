@@ -194,31 +194,10 @@ if ( ! class_exists( 'Meta_Box_Framework_Core' ) ) {
         }
         
 
-        /*public static function display_meta_box( $post, $metabox ) {
-            $fields = $metabox['args'];
-            wp_nonce_field( 'mbf_meta_box_nonce', 'mbf_meta_box_nonce_field' ); // Add nonce for security
-        
-            // Fetch the serialized data for this meta box
-            $serialized_data = get_post_meta( $post->ID, $metabox['id'] . '_serialized_data', true );
-            if ( ! is_array( $serialized_data ) ) {
-                $serialized_data = array();
-            }
-        
-            foreach ( $fields as $field ) {
-                // If the field is searchable, fetch its value directly
-                if ( isset( $field['searchable'] ) && $field['searchable'] ) {
-                    $field['value'] = get_post_meta( $post->ID, $field['id'], true );
-                } else {
-                    // Otherwise, fetch its value from the serialized data
-                    $field['value'] = isset( $serialized_data[ $field['id'] ] ) ? $serialized_data[ $field['id'] ] : '';
-                }
-                call_user_func( array( 'MBF_Field_' . ucfirst( $field['type'] ), 'render' ), $field );
-            }
-        }*/
-        
         
         public static function sanitize_and_remove_index($array) {
             $sanitized_array = array();
+            
         
             foreach ($array as $key => $value) {
                 if ($key !== '__index__') {
@@ -227,7 +206,7 @@ if ( ! class_exists( 'Meta_Box_Framework_Core' ) ) {
                         $sanitized_array[$key] = self::sanitize_and_remove_index($value);
                     } else {
                         // Sanitize the value if necessary
-                        $sanitized_array[$key] = sanitize_text_field($value);
+                        $sanitized_array[$key] = wp_kses_post($value);
                     }
                 }
             }
@@ -239,6 +218,22 @@ if ( ! class_exists( 'Meta_Box_Framework_Core' ) ) {
         
 
         public static function save_meta_box_data( $post_id ) {
+            $allowed_tags = array(
+                'a' => array(
+                    'href' => array(),
+                    'title' => array()
+                ),
+                'br' => array(),
+                'em' => array(),
+                'strong' => array(),
+                'p' => array(),
+                'h1' => array(),
+                'h2' => array(),
+                'h3' => array(),
+                'h4' => array(),
+                'h5' => array(),
+                'h6' => array(),
+            );
             mbf_load_metabox_configurations();
             self::register_all_meta_boxes();
             // Verify nonce.
@@ -264,9 +259,6 @@ if ( ! class_exists( 'Meta_Box_Framework_Core' ) ) {
                             if (isset($section['fields']) && is_array($section['fields'])) {
                                 $serialized_data = array();
                                 foreach ( $section['fields'] as $field ) {
-                                    //error_log(print_r($_POST, true)); // Log the entire $_POST data to see what is being sent
-                                    //error_log('Processing field: ' . $field['id']); // Log the field ID being processed
-                                    //error_log('Value: ' . print_r($_POST[$field['id']], true));
 
                                     if ($field['type'] == 'checkbox') {
                                         // Handle checkbox data
@@ -277,7 +269,7 @@ if ( ! class_exists( 'Meta_Box_Framework_Core' ) ) {
                                         $result = update_post_meta($post_id, $field['id'], $checked_values);                            
                                     } elseif ($field['type'] == 'text') {
                                         if (isset($_POST[$field['id']])) {
-                                            $sanitized_content = sanitize_text_field($_POST[$field['id']]);
+                                            $sanitized_content = wp_kses_post($_POST[$field['id']]);
                                             update_post_meta($post_id, $field['id'], $sanitized_content);
                                         // error_log('WYSIWYG update result for ' . $field['id'] . ': ' . ($result ? 'Success' : 'Failed')); // Debugging statement
                                         } else {
@@ -306,7 +298,7 @@ if ( ! class_exists( 'Meta_Box_Framework_Core' ) ) {
                                         }
                                     } elseif ($field['type'] == 'wysiwyg') {
                                         if (isset($_POST[$field['id']])) {
-                                            $sanitized_content = wp_kses_post($_POST[$field['id']]);
+                                            $sanitized_content = wp_kses_post($_POST[$field['id']], $allowed_tags);
                                             update_post_meta($post_id, $field['id'], $sanitized_content);
                                         // error_log('WYSIWYG update result for ' . $field['id'] . ': ' . ($result ? 'Success' : 'Failed')); // Debugging statement
                                         } else {
@@ -391,7 +383,7 @@ if ( ! class_exists( 'Meta_Box_Framework_Core' ) ) {
                                                             break;
                                                             case 'wysiwyg':
                                                                 $wysiwyg_value = $_POST[$field['id']][$repeater_index][$sub_field['id']];
-                                                                $repeater_data[$repeater_index][$sub_field['id']] = wp_kses_post($wysiwyg_value);
+                                                                $repeater_data[$repeater_index][$sub_field['id']] = wp_kses($wysiwyg_value, $allowed_tags);
                                                             break;
                                                             case 'date':
                                                                 $repeater_data[$repeater_index][$sub_field['id']] = sanitize_text_field($value);

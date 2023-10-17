@@ -26,12 +26,12 @@ $meta_boxes = array(
                                     array(
                                         'group_name' => 'Layout options for Template 1',
                                         'fields' => array(
-                                            array('id' => 'l1_title_content','name' => 'Title of Content','type' => 'text','label' => 'Title of Content',),
-                                            array('id' => 'l1_sub_title_content','name' => 'Subtitle of Content','type' => 'text','label' => 'Subtitle/Description',),
-                                            array('id' => 'l1_image_background','name' => 'Fullscreen Image','type' => 'image_upload','label' => 'Fullscreen Image ',),
-                                            array('id' => 'l1_video_content','name' => 'Replace Image with Video Content','type' => 'text','label' => 'Video URL','desc' => 'This is an optional field, if you need to have a video background then fpaste the url of video'),
-                                            array('id' => 'l1_cta_text','name' => 'Text for CTA','type' => 'text','label' => 'CTA Text',),
-                                            array('id' => 'l1_cta_link','name' => 'Link for CTA','type' => 'content_select','label' => 'CTA Link','content_types' => array('page', 'post'),
+                                            array('id' => 'hd_1_title_content','name' => 'Title of Content','type' => 'text','label' => 'Title of Content',),
+                                            array('id' => 'hd_1_sub_title_content','name' => 'Subtitle of Content','type' => 'text','label' => 'Subtitle/Description',),
+                                            array('id' => 'hd_1_image_background','name' => 'Fullscreen Image','type' => 'image_upload','label' => 'Fullscreen Image ',),
+                                            array('id' => 'hd_1_video_content','name' => 'Replace Image with Video Content','type' => 'text','label' => 'Video URL','desc' => 'This is an optional field, if you need to have a video background then fpaste the url of video'),
+                                            array('id' => 'hd_1_cta_text','name' => 'Text for CTA','type' => 'text','label' => 'CTA Text',),
+                                            array('id' => 'hd_1_cta_link','name' => 'Link for CTA','type' => 'content_select','label' => 'CTA Link','content_types' => array('page', 'post'),
                                             ),
                                         ),
                                     ),
@@ -46,12 +46,12 @@ $meta_boxes = array(
                                     array(
                                         'group_name' => 'Layout options for Template 2',
                                         'fields' => array(
-                                            array('id' => 'l2_title_content','name' => 'Title of Content','type' => 'text','label' => 'Title of Content',),
-                                            array('id' => 'l2_sub_title_content','name' => 'Subtitle of Content','type' => 'text','label' => 'Subtitle/Description',),
-                                            array('id' => 'l2_image_background','name' => 'Fullscreen Image','type' => 'image_upload','label' => 'Fullscreen Image ',),
-                                            array('id' => 'l2_video_content','name' => 'Replace Image with Video Content','type' => 'text','label' => 'Video URL','desc' => 'This is an optional field, if you need to have a video background then fpaste the url of video'),
-                                            array('id' => 'l2_cta_text','name' => 'Text for CTA','type' => 'text','label' => 'CTA Text',),
-                                            array('id' => 'l2_cta_link','name' => 'Link for CTA','type' => 'content_select','label' => 'CTA Link','content_types' => array('page', 'post'),
+                                            array('id' => 'hd_2_title_content','name' => 'Title of Content','type' => 'text','label' => 'Title of Content',),
+                                            array('id' => 'hd_2_sub_title_content','name' => 'Subtitle of Content','type' => 'text','label' => 'Subtitle/Description',),
+                                            array('id' => 'hd_2_image_background','name' => 'Fullscreen Image','type' => 'image_upload','label' => 'Fullscreen Image ',),
+                                            array('id' => 'hd_2_video_content','name' => 'Replace Image with Video Content','type' => 'text','label' => 'Video URL','desc' => 'This is an optional field, if you need to have a video background then fpaste the url of video'),
+                                            array('id' => 'hd_2_cta_text','name' => 'Text for CTA','type' => 'text','label' => 'CTA Text',),
+                                            array('id' => 'hd_2_cta_link','name' => 'Link for CTA','type' => 'content_select','label' => 'CTA Link','content_types' => array('page', 'post'),
                                             ),
                                         ),
                                     ),
@@ -66,12 +66,12 @@ $meta_boxes = array(
                                     array(
                                         'group_name' => 'Layout options for Template 3',
                                         'fields' => array(
-                                            array('id' => 'l3_title_content','name' => 'Title of Content','type' => 'text','label' => 'Title of Content',),
-                                            array('id' => 'l3_sub_title_content','name' => 'Subtitle of Content','type' => 'text','label' => 'Subtitle/Description',),
-                                            array('id' => 'l3_image_background','name' => 'Fullscreen Image','type' => 'image_upload','label' => 'Fullscreen Image ',),
-                                            array('id' => 'l3_video_content','name' => 'Replace Image with Video Content','type' => 'text','label' => 'Video URL','desc' => 'This is an optional field, if you need to have a video background then fpaste the url of video'),
-                                            array('id' => 'l3_cta_text','name' => 'Text for CTA','type' => 'text','label' => 'CTA Text',),
-                                            array('id' => 'l3_cta_link','name' => 'Link for CTA','type' => 'content_select','label' => 'CTA Link','content_types' => array('page', 'post'),
+                                            array('id' => 'hd_3_title_content','name' => 'Title of Content','type' => 'text','label' => 'Title of Content',),
+                                            array('id' => 'hd_3_sub_title_content','name' => 'Subtitle of Content','type' => 'text','label' => 'Subtitle/Description',),
+                                            array('id' => 'hd_3_image_background','name' => 'Fullscreen Image','type' => 'image_upload','label' => 'Fullscreen Image ',),
+                                            array('id' => 'hd_3_video_content','name' => 'Replace Image with Video Content','type' => 'text','label' => 'Video URL','desc' => 'This is an optional field, if you need to have a video background then fpaste the url of video'),
+                                            array('id' => 'hd_3_cta_text','name' => 'Text for CTA','type' => 'text','label' => 'CTA Text',),
+                                            array('id' => 'hd_3_cta_link','name' => 'Link for CTA','type' => 'content_select','label' => 'CTA Link','content_types' => array('page', 'post'),
                                             ),
                                         ),
                                     ),
@@ -86,10 +86,11 @@ $meta_boxes = array(
                                     array(
                                         'group_name' => 'Layout options for Template 4',
                                         'fields' => array(
-                                            array('id' => 'l4_title_content','name' => 'Title of Content','type' => 'text','label' => 'Title of Content',),                                            
-                                            array('id' => 'l4_image_background','name' => 'Fullscreen Image','type' => 'image_upload','label' => 'Fullscreen Image ',),
-                                            array('id' => 'l4_cta_text','name' => 'Text for CTA','type' => 'text','label' => 'CTA Text',),
-                                            array('id' => 'l4_cta_link','name' => 'Link for CTA','type' => 'content_select','label' => 'CTA Link','content_types' => array('page', 'post'),
+                                            array('id' => 'hd_4_title_content','name' => 'Title of Content','type' => 'text','label' => 'Title of Content',),
+                                            array('id' => 'hd_4_content','name' => 'Content','type' => 'text','label' => 'Content Details',),                                            
+                                            array('id' => 'hd_4_image_background','name' => 'Fullscreen Image','type' => 'image_upload','label' => 'Fullscreen Image ',),
+                                            array('id' => 'hd_4_cta_text','name' => 'Text for CTA','type' => 'text','label' => 'CTA Text',),
+                                            array('id' => 'hd_4_cta_link','name' => 'Link for CTA','type' => 'content_select','label' => 'CTA Link','content_types' => array('page', 'post'),
                                             ),
                                         ),
                                     ),
@@ -104,7 +105,7 @@ $meta_boxes = array(
                                     array(
                                         'group_name' => 'Layout options for Template 5',
                                         'fields' => array(
-                                            array('id' => 'l5_content','name' => 'Shortcode Content','type' => 'text','label' => 'Shortcode for Slider/Carousel',)
+                                            array('id' => 'hd_5_content','name' => 'Shortcode Content','type' => 'text','label' => 'Shortcode for Slider/Carousel',)
                                         ),
                                     ),
                                     // ... more groups for template_1.php ...
@@ -118,7 +119,23 @@ $meta_boxes = array(
                                     array(
                                         'group_name' => 'Layout options for Template 6',
                                         'fields' => array(
-                                            array('id' => 'l6_content','name' => 'Shortcode Content','type' => 'text','label' => 'Shortcode for Slider/Carousel',)
+                                            array('id' => 'hd_6_content','name' => 'Shortcode Content','type' => 'text','label' => 'Shortcode for Slider/Carousel',)
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'header_7',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/header_7.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Layout options for Template 7',
+                                        'fields' => array(
+                                            array('id' => 'hd_7_title','name' => 'Title','type' => 'text','label' => 'Title text for the section'),
+                                            array('id' => 'hd_7_content','name' => 'Content ','type' => 'text','label' => 'Content text for the section'),
+                                            array('id' => 'hd_7_image_background','name' => '1/4th Height Image','type' => 'image_upload','label' => '1/4th Height Image ',),
                                         ),
                                     ),
                                     // ... more groups for template_1.php ...
@@ -171,11 +188,25 @@ $meta_boxes = array(
                                                 'desc' => 'Add the Main Image here',
                                             ),
                                             array(
+                                                'id' => 'cn_1_underlay_image',
+                                                'name' => 'Underlay Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Underlay Image for section',
+                                                'desc' => 'Add the Underlay Image here',
+                                            ),
+                                            array(
                                                 'id' => 'cn_1_overlay_image',
                                                 'name' => 'Overlay Image Section',
                                                 'type' => 'image_upload',
                                                 'label' => 'Overlay Image for section',
                                                 'desc' => 'Add the Overlay Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_1_video',
+                                                'name' => 'Video URL',
+                                                'type' => 'text',
+                                                'label' => 'Add Video URL',
+                                                'desc' => 'Add video url will disable the upload image',
                                             ),
                                             array(
                                                 'id' => 'cn_1_cta',
@@ -227,11 +258,25 @@ $meta_boxes = array(
                                                 'desc' => 'Add the Main Image here',
                                             ),
                                             array(
+                                                'id' => 'cn_2_underlay_image',
+                                                'name' => 'Underlay Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Underlay Image for section',
+                                                'desc' => 'Add the Underlay Image here',
+                                            ),                                            
+                                            array(
                                                 'id' => 'cn_2_overlay_image',
                                                 'name' => 'Overlay Image Section',
                                                 'type' => 'image_upload',
                                                 'label' => 'Overlay Image for section',
                                                 'desc' => 'Add the Overlay Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_2_video',
+                                                'name' => 'Video URL',
+                                                'type' => 'text',
+                                                'label' => 'Add Video URL',
+                                                'desc' => 'Add video url will disable the upload image',
                                             ),
                                             array(
                                                 'id' => 'cn_2_cta',
@@ -283,6 +328,13 @@ $meta_boxes = array(
                                                 'desc' => 'Add the Main Image here',
                                             ),
                                             array(
+                                                'id' => 'cn_3_video',
+                                                'name' => 'Video URL',
+                                                'type' => 'text',
+                                                'label' => 'Add Video URL',
+                                                'desc' => 'Adding video url will disable the upload image',
+                                            ),
+                                            array(
                                                 'id' => 'cn_3_cta',
                                                 'name' => 'CTA text',
                                                 'type' => 'text',
@@ -331,6 +383,13 @@ $meta_boxes = array(
                                                 'label' => 'Main Image for section',
                                                 'desc' => 'Add the Main Image here',
                                             ), 
+                                            array(
+                                                'id' => 'cn_4_video',
+                                                'name' => 'Video URL',
+                                                'type' => 'text',
+                                                'label' => 'Add Video URL',
+                                                'desc' => 'Adding video url will disable the upload image',
+                                            ),
                                             array(
                                                 'id' => 'cn_4_cta',
                                                 'name' => 'CTA text',
@@ -409,6 +468,13 @@ $meta_boxes = array(
                                                 'desc' => 'Add the Main Image here',
                                             ),
                                             array(
+                                                'id' => 'cn_6_video',
+                                                'name' => 'Video URL',
+                                                'type' => 'text',
+                                                'label' => 'Add Video URL',
+                                                'desc' => 'Adding video url will disable the upload image',
+                                            ),
+                                            array(
                                                 'id' => 'cn_6_color',
                                                 'name' => 'Background Color',
                                                 'type' => 'color',
@@ -463,6 +529,13 @@ $meta_boxes = array(
                                                 'type' => 'image_upload',
                                                 'label' => 'Main Image for section',
                                                 'desc' => 'Add the Main Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_7_video',
+                                                'name' => 'Video URL',
+                                                'type' => 'text',
+                                                'label' => 'Add Video URL',
+                                                'desc' => 'Adding video url will disable the upload image',
                                             ),
                                             array(
                                                 'id' => 'cn_7_color',
@@ -521,6 +594,13 @@ $meta_boxes = array(
                                                 'desc' => 'Add the Main Image here',
                                             ),
                                             array(
+                                                'id' => 'cn_8_video',
+                                                'name' => 'Video URL',
+                                                'type' => 'text',
+                                                'label' => 'Add Video URL',
+                                                'desc' => 'Adding video url will disable the upload image',
+                                            ),
+                                            array(
                                                 'id' => 'cn_8_color',
                                                 'name' => 'Background Color',
                                                 'type' => 'color',
@@ -575,6 +655,13 @@ $meta_boxes = array(
                                                 'type' => 'image_upload',
                                                 'label' => 'Main Image for section',
                                                 'desc' => 'Add the Main Image here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_9_video',
+                                                'name' => 'Video URL',
+                                                'type' => 'text',
+                                                'label' => 'Add Video URL',
+                                                'desc' => 'Adding video url will disable the upload image',
                                             ),
                                             array(
                                                 'id' => 'cn_9_color',
@@ -633,6 +720,20 @@ $meta_boxes = array(
                                                 'desc' => 'Add the Main Image here',
                                             ),
                                             array(
+                                                'id' => 'cn_10_content_background',
+                                                'name' => 'Content Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Content Image for section',
+                                                'desc' => 'Add the background image for content section here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_10_video',
+                                                'name' => 'Video URL',
+                                                'type' => 'text',
+                                                'label' => 'Add Video URL',
+                                                'desc' => 'Add video url will disable the upload image',
+                                            ),
+                                            array(
                                                 'id' => 'cn_10_cta',
                                                 'name' => 'CTA text',
                                                 'type' => 'text',
@@ -680,7 +781,21 @@ $meta_boxes = array(
                                                 'type' => 'image_upload',
                                                 'label' => 'Main Image for section',
                                                 'desc' => 'Add the Main Image here',
-                                            ), 
+                                            ),
+                                            array(
+                                                'id' => 'cn_11_content_background',
+                                                'name' => 'Content Image Section',
+                                                'type' => 'image_upload',
+                                                'label' => 'Content Image for section',
+                                                'desc' => 'Add the background image for content section here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_11_video',
+                                                'name' => 'Video URL',
+                                                'type' => 'text',
+                                                'label' => 'Add Video URL',
+                                                'desc' => 'Add video url will disable the upload image',
+                                            ),
                                             array(
                                                 'id' => 'cn_11_cta',
                                                 'name' => 'CTA text',
@@ -714,7 +829,7 @@ $meta_boxes = array(
                                                 'name' => 'No of Boxes ',
                                                 'type' => 'text',
                                                 'label' => 'No. of Boxes',
-                                                'desc' => 'Number of boxes in each row',
+                                                'desc' => 'Number of boxes in each row. Default is 4. Leave blank if you want to use the default',
                                             ),                                              
                                             array(
                                                 'id' => 'cn_12_repeater_field',
@@ -724,13 +839,40 @@ $meta_boxes = array(
                                                 'sub_fields' => array(
                                                     array(
                                                         'id' => 'cn_12_title',
-                                                        'name' => 'Title for Section',
+                                                        'name' => 'Name/Title',
                                                         'type' => 'text',
-                                                        'label' => 'Title for Section',
-                                                        'desc' => 'Add Title here for the section',
+                                                        'label' => 'Name/Title',
+                                                        'desc' => 'Add Name/Title here for the section',
                                                         'repeater' => true,
                                                         'repeater_id' => 'cn_12_repeater_field',
-                                                    ),                                                    
+                                                    ),
+                                                    array(
+                                                        'id' => 'cn_12_short_designation',
+                                                        'name' => 'Designation Shortform',
+                                                        'type' => 'text',
+                                                        'label' => 'Designation Shortform',
+                                                        'desc' => 'Add Short form of designation for the team member',
+                                                        'repeater' => true,
+                                                        'repeater_id' => 'cn_12_repeater_field',
+                                                    ), 
+                                                    array(
+                                                        'id' => 'cn_12_designation',
+                                                        'name' => 'Designation',
+                                                        'type' => 'text',
+                                                        'label' => 'Designation',
+                                                        'desc' => 'Add designation of the team member',
+                                                        'repeater' => true,
+                                                        'repeater_id' => 'cn_12_repeater_field',
+                                                    ), 
+                                                    array(
+                                                        'type' => 'textarea',
+                                                        'id' => 'cn_12_content',
+                                                        'name' => 'Content for the section',
+                                                        'desc' => 'Content for the section',
+                                                        'label' => 'Content details for the each box',
+                                                        'repeater' => true,
+                                                        'repeater_id' => 'cn_12_repeater_field',
+                                                    ),                                                      
                                                     array(
                                                         'type' => 'image_upload',
                                                         'id' => 'cn_12_image',
@@ -741,14 +883,14 @@ $meta_boxes = array(
                                                         'repeater_id' => 'cn_12_repeater_field',
                                                     ),
                                                     array(
-                                                        'type' => 'wysiwyg',
-                                                        'id' => 'cn_12_content',
-                                                        'name' => 'Content for the section',
-                                                        'desc' => 'Content for the section',
-                                                        'label' => 'Content details for the each box',
+                                                        'id' => 'cn_12_facebook',
+                                                        'name' => 'Link to Facebook',
+                                                        'type' => 'text',
+                                                        'label' => 'Link to Facebook',
+                                                        'desc' => 'Add Facebook profile link',
                                                         'repeater' => true,
                                                         'repeater_id' => 'cn_12_repeater_field',
-                                                    ),
+                                                    ),                                                   
                                                     array(
                                                         'id' => 'cn_12_twitter',
                                                         'name' => 'Link to Twitter',
@@ -1325,6 +1467,139 @@ $meta_boxes = array(
                                                    
                                                 )
                                             )  
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            
+                            array(
+                                'template' => 'content_23',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_23.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 23',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_23_title',
+                                                'name' => 'Title',
+                                                'type' => 'text',
+                                                'label' => 'Title of the section',
+                                                'desc' => 'Add the title content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_23_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),
+                                            
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_24',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_24.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 24',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_24_title',
+                                                'name' => 'Title',
+                                                'type' => 'text',
+                                                'label' => 'Title of the section',
+                                                'desc' => 'Add the title content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_24_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),
+                                            array(
+                                                'id' => 'cn_24_color',
+                                                'name' => 'Background Color for Section',
+                                                'type' => 'color',
+                                                'label' => 'Background Color for Section',
+                                                'desc' => 'Add a new color to change background color or let it be at default',
+                                            ),
+                                            
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            
+                            array(
+                                'template' => 'content_25',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_5.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 5',
+                                        'fields' => array(  
+                                            array(
+                                                'id' => 'cn_25_title',
+                                                'name' => 'Title ',
+                                                'type' => 'text',
+                                                'label' => 'Title for section',
+                                                'desc' => 'Add the Title here',
+                                            ),                                          
+                                            array(
+                                                'id' => 'cn_25_content',
+                                                'name' => 'Content for Section',
+                                                'type' => 'wysiwyg',
+                                                'label' => 'Content for section',
+                                                'desc' => 'Add the content here',
+                                            ),                                            
+                                            
+                                        ),
+                                    ),
+                                    // ... more groups for template_1.php ...
+                                ),
+                            ),
+                            array(
+                                'template' => 'content_26',
+                                'image' => get_template_directory_uri() . '/library/classes/meta-box-framework/assets/images/content_26.svg',
+                                'type' => 'group',
+                                'groups' => array(
+                                    array(
+                                        'group_name' => 'Group for Template 26',
+                                        'fields' => array(
+                                            array(
+                                                'id' => 'cn_26_repeater_field',
+                                                'name' => 'Repeater Field',
+                                                'type' => 'repeater',
+                                                'label' => 'Repeater block for FAQ',
+                                                'sub_fields' => array(
+                                                    array(
+                                                        'id' => 'cn_26_title',
+                                                        'name' => 'Name/Title',
+                                                        'type' => 'text',
+                                                        'label' => 'Name/Title',
+                                                        'desc' => 'Add Name/Title here for the section',
+                                                        'repeater' => true,
+                                                        'repeater_id' => 'cn_26_repeater_field',
+                                                    ),                                                    
+                                                    array(
+                                                        'type' => 'textarea',
+                                                        'id' => 'cn_26_content',
+                                                        'name' => 'Content for the section',
+                                                        'desc' => 'Content for the section',
+                                                        'label' => 'Content details for the each box',
+                                                        'repeater' => true,
+                                                        'repeater_id' => 'cn_26_repeater_field',
+                                                    ),
+                                                )
+                                            ) 
+                                            
                                         ),
                                     ),
                                     // ... more groups for template_1.php ...

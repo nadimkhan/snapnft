@@ -12,7 +12,7 @@ function mbf_load_metabox_configurations() {
     if ('custom-page.php' === $current_template ) {
         include_once get_template_directory() . '/library/functions/metaboxes/custom-page-metabox.php';
     }
-    if ('frontpage.php' === $current_template ) {
+    if ('front-page.php' === $current_template ) {
         include_once get_template_directory() . '/library/functions/metaboxes/frontpage-metabox.php';
     }
 }

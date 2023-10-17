@@ -1,3 +1,4 @@
 <?php 
-echo 'this is header 1';
+echo 'this is content 7';
+
 ?>

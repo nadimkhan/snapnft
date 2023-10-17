@@ -5,7 +5,7 @@ class MBF_Field_Layout {
     public static function render($field) {
         //error_log(print_r($field, true)); // Log the $field data
         $saved_data = get_post_meta(get_the_ID(), $field['id'], true);
-        //error_log('Saved Data: ' . print_r($saved_data, true));
+        error_log('Saved Data: ' . print_r($saved_data, true));
         if (!is_array($saved_data)) {
             $saved_data = array();
         }
@@ -44,10 +44,19 @@ class MBF_Field_Layout {
 // ... (previous code)
 if (isset($field['type']) && ($field['type'] === 'layout_radio' || $field['type'] === 'layout_checkbox')) {
     if (isset($field['layouts']) && is_array($field['layouts']) && !empty($field['layouts'])) {
+        // If there's saved data, sort the layouts based on the saved order
+        if (!empty($saved_data)) {
+            usort($field['layouts'], function($a, $b) use ($saved_data) {
+                $indexA = array_search($a['template'], array_column($saved_data, 'template'));
+                $indexB = array_search($b['template'], array_column($saved_data, 'template'));
+                return $indexA <=> $indexB;
+            });
+        }
         foreach ($field['layouts'] as $index => $layout) {
             $array_index = array_search($layout['template'], array_column($saved_data, 'template'));
-            //error_log('Array Index:' . $array_index);
-            $array_index = $array_index + 1;
+            $array_index = $array_index !== false ? $array_index + 1 : $index + 1;
+
+            
             // Determine input type and name based on field type
             $inputType = $field['type'] === 'layout_radio' ? 'radio' : 'checkbox';            
             // Adjust the input name to generate the desired $_POST structure
@@ -64,9 +73,15 @@ if (isset($field['type']) && ($field['type'] === 'layout_radio' || $field['type'
             $is_checked = '';
             if ($field['type'] === 'layout_radio' && isset($value['template']) && $value['template'] == $sanitized_template) {
                 $is_checked = 'checked';
-            } elseif ($field['type'] === 'layout_checkbox' && isset($value[$index]['template']) && $value[$index]['template'] == $sanitized_template) {
-                $is_checked = 'checked';
+            } elseif ($field['type'] === 'layout_checkbox') {
+                foreach ($saved_data as $saved_layout) {
+                    if (isset($saved_layout['template']) && $saved_layout['template'] == $sanitized_template) {
+                        $is_checked = 'checked';
+                        break;
+                    }
+                }
             }
+
 
             // Render input element
             echo "      <input type='{$inputType}' name='{$inputName}' value='{$sanitized_template}' class='layout-input' {$is_checked}>";
@@ -191,6 +206,7 @@ if (isset($field['type']) && ($field['type'] === 'layout_radio' || $field['type'
             case 'select':
                 $common_args['value'] = $value;
                 $common_args['options'] = $sub_field['options'];
+                $common_args['is_group'] = 'true';
                 MBF_Field_Select::render($common_args);
                 break;
             case 'content_select':

@@ -4,7 +4,9 @@
 class MBF_Field_Select {
 
     public static function render($field) {
-        if (isset($field['repeater']) && $field['repeater']) {
+        $is_repeater = isset($field['repeater']) && $field['repeater'];
+        $is_group = isset($field['is_group']) && $field['is_group'];
+        if ($is_repeater || $is_group) {
             $value = isset($field['value']) ? $field['value'] : '';
         } else {
             $value = get_post_meta(get_the_ID(), $field['id'], true);

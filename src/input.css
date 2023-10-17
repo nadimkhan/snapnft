@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .icon {
+      /*@apply text-base;  You can adjust the font size */
+      font-size: 11px!important;
+    }
+  }
+  
+@font-face {
+  font-family: "Larken";
+  src: url('../assets/fonts/larken-medium-webfont.eot');
+  src: url('../assets/fonts/larken-medium-webfont.woff2') format('embedded-opentype'),
+       url('../assets/fonts/larken-medium-webfont.woff2') format('woff2'),
+       url('../assets/fonts/larken-medium-webfont.woff') format('woff'),
+       url('../assets/fonts/larken-medium-webfont.ttf') format('truetype');
+}
+body{
+	font-family: 'Inter', sans-serif;
+	font-size:17px;
+	font-weight:400;
+  line-height: 24px;
+	color:#17161B;
+	overflow-x:hidden;
+	min-height:100%;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+}
+h1, h2, h3, h4, h5, h6{font-family: "Larken", sans-serif;}
+.top-bar, .middle-bar, .bottom-bar, .cross{height:3px; transition:all .2s cubic-bezier(.77,0,.175,1);display:block}
+.tab-content {
+  transition: opacity 0.3s, transform 0.3s;
+}
+.tab-content.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+.scale-hover:hover img {
+  transform: scale(1.10);
+  transition: transform 0.5s ease-in-out;
+}
+#menu-primary-menu a{color:#fff}
+#menu-primary-menu a:hover{color:#CDAE81}
+@keyframes animateFromLeft {
+  0% {
+      transform: translateX(-100%);
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
+
+@keyframes animateFromRight {
+  0% {
+      transform: translateX(100%);
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
